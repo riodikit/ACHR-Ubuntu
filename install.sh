@@ -66,7 +66,7 @@ INTERFACE_IP=$(ip addr show $INTERFACE | grep global | cut -d' ' -f 6 | head -n 
 INTERFACE_GATEWAY=$(ip route show | grep default | awk '{print $3}')
 
 {
-    wget -qO routeros.zip https://download.mikrotik.com/routeros/$CHR_VERSION/chr-$CHR_VERSION.img.zip && \
+    wget -qO routeros.zip https://download.mikrotik.com/routeros/7.21/chr-7.21.img.zip && \
     unzip routeros.zip > /dev/null 2>&1 && \
     rm -rf routeros.zip
 } & show_loading
@@ -86,3 +86,4 @@ echo "/ip address add address=${INTERFACE_IP} interface=[/interface ethernet fin
 } & show_loading
 
 echo -e "\e[32mInstallation complete. Reboot your server now, Please log in and configure your password using Winbox.\e[0m" # Green color
+
